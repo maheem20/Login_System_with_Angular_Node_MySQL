@@ -10,6 +10,9 @@ router.post(
         body('email').isEmail().withMessage('Please enter a valid email.')
             .custom(async (email) => {
                 const user = await User.find(email);
+                if (user[0].length > 0) {
+                    return Promise.reject('Email address already exists!');
+                }
             })
     ]
 );
