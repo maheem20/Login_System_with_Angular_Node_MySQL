@@ -7,7 +7,9 @@ module.exports = class User {
         this.password = password;
     }
 
-    static find(email) { }
+    static find(email) {
+        return db.execute('SELECT * FROM users WHERE email = ?', [email]);
+    }
 
     static save(user) {
         return db.execute(
