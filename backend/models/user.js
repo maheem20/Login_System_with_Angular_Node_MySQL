@@ -8,6 +8,9 @@ module.exports = class User {
     }
 
     static save(user) {
-        return db.execute('INSERT INTO users (name, email, password) VALUES (?, ?, ?)');
+        return db.execute(
+            'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+            [user.name, user.email, user.password]
+        );
     }
 };
