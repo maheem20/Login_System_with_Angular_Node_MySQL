@@ -14,6 +14,7 @@ router.post(
                     return Promise.reject('Email address already exists!');
                 }
             })
-            .normalizeEmail()
+            .normalizeEmail(),
+        body('password').trim().isLength({ min: 7 })
     ]
 );
