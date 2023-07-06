@@ -7,5 +7,7 @@ module.exports = class User {
         this.password = password;
     }
 
-    static save(user) { }
+    static save(user) {
+        return db.execute('INSERT INTO users (name, email, password) VALUES (?, ?, ?)');
+    }
 };
