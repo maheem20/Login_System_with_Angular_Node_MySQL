@@ -14,5 +14,6 @@ router.post(
                     return Promise.reject('Email address already exists!');
                 }
             })
+            .normalizeEmail()
     ]
 );
