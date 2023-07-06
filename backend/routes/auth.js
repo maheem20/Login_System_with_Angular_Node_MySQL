@@ -8,5 +8,6 @@ router.post(
     [
         body('name').trim().not().isEmpty(),
         body('email').isEmail().withMessage('Please enter a valid email.')
+            .custom(async (email) => { })
     ]
 );
