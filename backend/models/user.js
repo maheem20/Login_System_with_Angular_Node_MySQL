@@ -6,4 +6,6 @@ module.exports = class User {
         this.email = email;
         this.password = password;
     }
+
+    static save(user) { }
 };
