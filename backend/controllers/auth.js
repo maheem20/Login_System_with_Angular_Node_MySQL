@@ -18,6 +18,6 @@ exports.signup = async (req, res, next) => {
             email: email,
             password: hashedPassword
         };
-
+        const result = await User.save(userDetails);
     }
 };
