@@ -10,6 +10,7 @@ exports.get500 = (error, req, res, next) => {
     res.json({
         error: {
             message: error.message,
+            data: data
         },
     });
 };
