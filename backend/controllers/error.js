@@ -3,3 +3,6 @@ exports.get404 = (req, res, next) => {
     error.statusCode = 404;
     next(error);
 };
+
+exports.get500 = (error, req, res, next) => {
+};
