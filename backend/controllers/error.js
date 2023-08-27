@@ -6,4 +6,5 @@ exports.get404 = (req, res, next) => {
 
 exports.get500 = (error, req, res, next) => {
     const data = error.data;
+    res.status(error.statusCode || 500);
 };
