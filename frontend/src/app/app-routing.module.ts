@@ -6,7 +6,12 @@ import { PostsComponent } from './components/posts/posts.component'; // Add this
 import { LoginComponent } from './components/login/login.component'; // Add this
 import { SignupComponent } from './components/signup/signup.component'; // Add this
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
