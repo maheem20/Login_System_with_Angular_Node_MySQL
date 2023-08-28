@@ -5,7 +5,7 @@ const authRoutes = require('./routes/auth');
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const ports = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -18,4 +18,4 @@ app.use((req, res, next) => {
 
 app.use('/auth', authRoutes);
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(ports, () => console.log(`Listening on port ${ports}`));
