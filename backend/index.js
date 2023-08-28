@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const authRoutes = require('./routes/auth');
+const e = require('express');
 
 const app = express();
 
@@ -17,5 +18,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/auth', authRoutes);
+
+app.use(errorController.get404);
 
 app.listen(ports, () => console.log(`Listening on port ${ports}`));
