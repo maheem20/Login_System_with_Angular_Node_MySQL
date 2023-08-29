@@ -16,4 +16,7 @@
             formControlName="password"
         >
     </mat-form-field>
+    <button color="accent" [disabled]="!signupForm.valid" mat-raised-button type="submit">
+        <span>Sign up</span>
+    </button>
 </form>
