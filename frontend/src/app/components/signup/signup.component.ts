@@ -13,5 +13,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.createFormGroup();
   }
 
-  createFormGroup(): FormGroup { }
+  createFormGroup(): FormGroup {
+    return new FormGroup({});
+  }
 }
