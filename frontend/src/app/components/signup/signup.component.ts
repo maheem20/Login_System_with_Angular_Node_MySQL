@@ -20,4 +20,8 @@ export class SignupComponent implements OnInit {
       password: new FormControl("", [Validators.required, Validators.minLength(7)]),
     });
   }
+
+  signup(): void {
+    console.log(this.signupForm?.value);
+  }
 }
