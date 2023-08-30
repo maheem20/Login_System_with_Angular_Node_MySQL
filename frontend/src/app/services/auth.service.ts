@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 import { User } from '../models/User';
 
@@ -18,6 +19,8 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signup(user: Omit<User, "id">): Observable<User> {
-    return this.http.post<User>(this.url, user, this.httpOptions)
+    return this.http.post<User>(this.url, user, this.httpOptions).pipe(
+      first()
+    );
   }
 }
