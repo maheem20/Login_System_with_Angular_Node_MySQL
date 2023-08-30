@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { first, catchError } from 'rxjs/operators';
 
 import { User } from '../models/User';
+import { ErrorHandlerService } from './error-handler.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +17,12 @@ export class AuthService {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService) { }
 
   signup(user: Omit<User, "id">): Observable<User> {
     return this.http.post<User>(this.url, user, this.httpOptions).pipe(
       first(),
-      catchError(this.errorHandlerService.handleError)
+      catchError(this.errorHandlerService.handleError<User>("signup"))
     );
   }
 }
