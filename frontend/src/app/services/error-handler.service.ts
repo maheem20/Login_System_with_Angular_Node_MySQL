@@ -6,5 +6,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ErrorHandlerService {
-  handleError<T>(operation = 'operation', result?: T) { }
+  handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => { };
+  }
 }
