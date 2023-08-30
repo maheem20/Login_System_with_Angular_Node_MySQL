@@ -7,6 +7,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class AuthService {
+  private url = 'http://localhost:3000/auth/signup';
 
   constructor() { }
 }
