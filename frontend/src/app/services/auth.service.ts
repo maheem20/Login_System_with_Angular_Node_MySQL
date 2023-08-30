@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { Observable } from 'rxjs';
+
 import { User } from '../models/User';
 
 @Injectable({
@@ -13,5 +15,7 @@ export class AuthService {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
   };
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  signup(user: Omit<User, "id">): Observable<User> { }
 }
