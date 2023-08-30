@@ -9,5 +9,9 @@ import { User } from '../models/User';
 export class AuthService {
   private url = 'http://localhost:3000/auth/signup';
 
+  httpOptions = { headers: HttpHeaders } = {
+    headers: new HttpHeaders({ "Content-Type": "application/json" })
+  };
+
   constructor() { }
 }
