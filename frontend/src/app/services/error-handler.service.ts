@@ -7,5 +7,4 @@ import { Observable, of } from 'rxjs';
 })
 export class ErrorHandlerService {
 
-  constructor() { }
 }
