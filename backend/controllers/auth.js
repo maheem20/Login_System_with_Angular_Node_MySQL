@@ -40,6 +40,8 @@ exports.login = async (req, res, next) => {
             error.statusCode = 401;
             throw error;
         }
+
+        const storedUser = user[0][0];
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
