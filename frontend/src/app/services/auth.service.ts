@@ -25,4 +25,8 @@ export class AuthService {
       catchError(this.errorHandlerService.handleError<User>("signup"))
     );
   }
+
+  login(email: Pick<User, "email">, password: Pick<User, "password">): Observable<{
+    token: string; userId: Pick<User, "id">;
+  }> { }
 }
