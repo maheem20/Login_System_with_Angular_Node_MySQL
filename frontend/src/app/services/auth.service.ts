@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { first, catchError } from 'rxjs/operators';
+import { first, catchError, tap } from 'rxjs/operators';
 
 import { User } from '../models/User';
 import { ErrorHandlerService } from './error-handler.service';
@@ -32,6 +32,8 @@ export class AuthService {
     return this.http
       .post<{ token: string; userId: Pick<User, "id"> }>(`${this.url}/login`, { email, password }, this.httpOptions)
       .pipe(
-        first());
+        first(),
+        tap((tokenObject: { token: string; userId: Pick<User, "id"> }) => { })
+      );
   }
 }
