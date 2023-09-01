@@ -28,5 +28,8 @@ export class AuthService {
 
   login(email: Pick<User, "email">, password: Pick<User, "password">): Observable<{
     token: string; userId: Pick<User, "id">;
-  }> { }
+  }> {
+    return this.http
+      .post<{ token: string; userId: Pick<User, "id"> }>(`${this.url}/login`, { email, password }, this.httpOptions)
+  }
 }
