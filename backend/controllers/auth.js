@@ -42,6 +42,7 @@ exports.login = async (req, res, next) => {
         }
 
         const storedUser = user[0][0];
+        const isEqual = await bcrypt.compare(password, storedUser.password);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
