@@ -32,7 +32,9 @@ exports.signup = async (req, res, next) => {
 exports.login = async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
+
     try {
+        const user = await User.find(email);
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
