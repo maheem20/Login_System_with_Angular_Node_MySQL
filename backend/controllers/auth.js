@@ -35,6 +35,11 @@ exports.login = async (req, res, next) => {
 
     try {
         const user = await User.find(email);
+        if (user[0].length !== 1) {
+            const error = new Error('A user with this email could not be found.');
+            error.statusCode = 401;
+            throw error;
+        }
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
