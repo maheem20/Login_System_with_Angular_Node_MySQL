@@ -31,5 +31,7 @@ export class AuthService {
   }> {
     return this.http
       .post<{ token: string; userId: Pick<User, "id"> }>(`${this.url}/login`, { email, password }, this.httpOptions)
+      .pipe(
+        first());
   }
 }
