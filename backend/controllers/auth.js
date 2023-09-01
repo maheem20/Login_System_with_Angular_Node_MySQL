@@ -56,6 +56,7 @@ exports.login = async (req, res, next) => {
                 userId: storedUser.id.toString()
             },
             'secretfortoken',
+            { expiresIn: '1h' }
         );
 
     } catch (err) {
