@@ -55,6 +55,7 @@ exports.login = async (req, res, next) => {
                 email: storedUser.email,
                 userId: storedUser.id.toString()
             },
+            'secretfortoken',
         );
 
     } catch (err) {
