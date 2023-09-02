@@ -15,3 +15,5 @@ router.post(
 );
 
 router.delete('/:id', postsController.deletePost);
+
+module.exports = router;
