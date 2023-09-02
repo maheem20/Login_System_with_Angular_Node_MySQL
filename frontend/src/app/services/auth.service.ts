@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { first, catchError, tap } from 'rxjs/operators';
 
 import { User } from '../models/User';
@@ -12,6 +12,8 @@ import { ErrorHandlerService } from './error-handler.service';
 })
 export class AuthService {
   private url = 'http://localhost:3000/auth';
+
+  isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
