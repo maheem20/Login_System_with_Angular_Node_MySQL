@@ -13,3 +13,5 @@ router.post(
         body('user').trim().not().isEmpty()
     ], postsController.postPost
 );
+
+router.delete('/:id', postsController.deletePost);
