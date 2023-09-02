@@ -36,7 +36,10 @@ export class AuthService {
       .post<{ token: string; userId: Pick<User, "id"> }>(`${this.url}/login`, { email, password }, this.httpOptions)
       .pipe(
         first(),
-        tap((tokenObject: { token: string; userId: Pick<User, "id"> }) => { }),
+        tap((tokenObject: { token: string; userId: Pick<User, "id"> }) => {
+          this.userId = tokenObject.userId;
+          localStorage.setItem("token", tokenObject.token);
+        }),
         catchError(this.errorHandlerService.handleError<{ token: string; userId: Pick<User, "id"> }>("login"))
       );
   }
