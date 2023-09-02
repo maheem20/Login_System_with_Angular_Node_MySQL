@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 
 const authRoutes = require('./routes/auth');
 
+const postsRoutes = require('./routes/posts');
+
 const app = express();
 
 const ports = process.env.PORT || 3000;
@@ -17,6 +19,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/auth', authRoutes);
+
+app.use('/posts', postsRoutes);
 
 app.use(errorController.get404);
 
