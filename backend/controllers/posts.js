@@ -12,3 +12,5 @@ exports.fetchAll = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.postPost = async (req, res, next) => { };
