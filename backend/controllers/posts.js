@@ -29,4 +29,6 @@ exports.postPost = async (req, res, next) => {
             user: user
         };
         const result = await Post.save(post);
-    };
+        res.status(201).json({ message: 'Posted!' });
+    }
+};
