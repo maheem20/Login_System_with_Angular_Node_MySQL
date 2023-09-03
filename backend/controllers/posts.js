@@ -17,4 +17,8 @@ exports.postPost = async (req, res, next) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) return
+
+    const title = req.body.title;
+    const body = req.body.body;
+    const user = req.body.user;
 };
