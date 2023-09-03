@@ -6,4 +6,8 @@ module.exports = class Post {
         this.body = body;
         this.user = user;
     }
+
+    static fetchAll() {
+        return db.execute('SELECT * FROM posts');
+    }
 };
