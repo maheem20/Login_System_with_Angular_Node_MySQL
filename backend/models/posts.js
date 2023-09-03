@@ -10,4 +10,11 @@ module.exports = class Post {
     static fetchAll() {
         return db.execute('SELECT * FROM posts');
     }
+
+    static save(post) {
+        return db.execute(
+            'INSERT INTO posts (title, body, user) VALUES (?, ?, ?)',
+            [post.title, post.body, post.user]
+        );
+    }
 };
