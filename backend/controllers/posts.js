@@ -21,4 +21,11 @@ exports.postPost = async (req, res, next) => {
     const title = req.body.title;
     const body = req.body.body;
     const user = req.body.user;
-};
+
+    try {
+        const post = {
+            title: title,
+            body: body,
+            user: user
+        };
+    };
