@@ -15,4 +15,6 @@ exports.fetchAll = async (req, res, next) => {
 
 exports.postPost = async (req, res, next) => {
     const errors = validationResult(req);
+
+    if (!errors.isEmpty()) return
 };
