@@ -28,4 +28,5 @@ exports.postPost = async (req, res, next) => {
             body: body,
             user: user
         };
+        const result = await Post.save(post);
     };
