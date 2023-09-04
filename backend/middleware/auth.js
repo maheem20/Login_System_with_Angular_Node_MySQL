@@ -20,4 +20,7 @@ module.exports = (req, res, next) => {
         error.statusCode = 401;
         throw error;
     }
+    req.isLoggedIn = true;
+    req.userId = decodedToken.userId;
+    req.email = decodedToken.email;
 };
