@@ -41,5 +41,6 @@ exports.postPost = async (req, res, next) => {
 exports.deletePost = async (req, res, next) => {
     try {
         const deleteResponse = await Post.delete(req.params.id);
+        res.status(200).json(deleteResponse);
     }
 };
