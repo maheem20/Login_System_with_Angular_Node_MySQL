@@ -37,3 +37,5 @@ exports.postPost = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.deletePost = async (req, res, next) => { };
