@@ -23,4 +23,5 @@ module.exports = (req, res, next) => {
     req.isLoggedIn = true;
     req.userId = decodedToken.userId;
     req.email = decodedToken.email;
+    next();
 };
