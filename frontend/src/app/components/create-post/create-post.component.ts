@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-post',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class CreatePostComponent {
   form: FormGroup | undefined;
+
+  createFormGroup(): FormGroup {
+    return new FormGroup({});
+  }
 }
