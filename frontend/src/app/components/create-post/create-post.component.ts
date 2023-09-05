@@ -24,5 +24,7 @@ export class CreatePostComponent implements OnInit {
     });
   }
 
-  onSubmit(formData: Pick<Post, "title" | "body">): void { }
+  onSubmit(formData: Pick<Post, "title" | "body">): void {
+    console.log(formData);
+  }
 }
