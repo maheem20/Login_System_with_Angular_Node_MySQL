@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,8 +6,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.scss']
 })
-export class CreatePostComponent {
+export class CreatePostComponent implements OnInit {
   form: FormGroup | undefined;
+
+  ngOnInit(): void {
+    this.form = this.createFormGroup();
+  }
 
   createFormGroup(): FormGroup {
     return new FormGroup({
