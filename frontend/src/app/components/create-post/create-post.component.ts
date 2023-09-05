@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Post } from 'src/app/models/Post';
 
 @Component({
@@ -8,6 +8,7 @@ import { Post } from 'src/app/models/Post';
   styleUrls: ['./create-post.component.scss']
 })
 export class CreatePostComponent implements OnInit {
+  @ViewChild("formDirective") formDirective: NgForm | undefined;
   form: FormGroup | undefined;
 
   ngOnInit(): void {
