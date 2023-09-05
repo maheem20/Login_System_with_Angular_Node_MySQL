@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-post.component.scss']
 })
 export class CreatePostComponent {
-
+  form: FormGroup | undefined;
 }
