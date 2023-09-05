@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-post',
@@ -10,6 +10,8 @@ export class CreatePostComponent {
   form: FormGroup | undefined;
 
   createFormGroup(): FormGroup {
-    return new FormGroup({});
+    return new FormGroup({
+      title: new FormControl("", [Validators.required, Validators.minLength(5)])
+    });
   }
 }
