@@ -11,7 +11,11 @@ export class CreatePostComponent {
 
   createFormGroup(): FormGroup {
     return new FormGroup({
-      title: new FormControl("", [Validators.required, Validators.minLength(5)])
+      title: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      body: new FormControl("", [
+        Validators.required,
+        Validators.minLength(10)
+      ]),
     });
   }
 }
