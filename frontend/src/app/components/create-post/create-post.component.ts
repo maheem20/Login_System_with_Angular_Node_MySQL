@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Post } from 'src/app/models/Post';
 
 @Component({
   selector: 'app-create-post',
@@ -22,4 +23,6 @@ export class CreatePostComponent implements OnInit {
       ]),
     });
   }
+
+  onSubmit(formData: Pick<Post, "title" | "body">): void { }
 }
