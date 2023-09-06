@@ -27,4 +27,8 @@ export class PostsComponent implements OnInit {
   fetchAll(): Observable<Post[]> {
     return this.postService.fetchAll();
   }
+
+  createPost(): void {
+    this.posts$ = this.fetchAll();
+  }
 }
