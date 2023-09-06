@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, first } from 'rxjs/operators';
 
 import { Post } from '../models/Post';
 import { User } from '../models/User';
@@ -33,6 +33,15 @@ export class PostService {
       .post<Post>(this.url, { title: formData.title, body: formData.body, user: userId }, this.httpOptions)
       .pipe(
         catchError(this.errorHandlerService.handleError<Post>("createPost"))
+      );
+  }
+
+  deletePost(postId: Pick<Post, "id">): Observable<{}> {
+    return this.http
+      .delete<Post>(`${this.url}/${postId}`, this.httpOptions)
+      .pipe(
+        first(),
+        catchError(this.errorHandlerService.handleError<Post>("deletePost"))
       );
   }
 }
