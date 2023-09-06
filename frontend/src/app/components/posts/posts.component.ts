@@ -35,5 +35,6 @@ export class PostsComponent implements OnInit {
   deletePost(): void {
     this.postService
       .deletePost(postId)
+      .subscribe(() => (this.posts$ = this.fetchAll()));
   }
 }
