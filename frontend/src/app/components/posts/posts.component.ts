@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -13,9 +13,13 @@ import { User } from 'src/app/models/User';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent {
+export class PostsComponent implements OnInit {
   posts$!: Observable<Post[]>;
   userId!: Pick<User, "id">;
 
   constructor(private postService: PostService, private authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.posts$ = this.postService.fetchAll();
+  }
 }
