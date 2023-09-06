@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+import { Post } from '../models/Post';
 import { ErrorHandlerService } from './error-handler.service';
 
 @Injectable({
@@ -14,4 +18,12 @@ export class PostService {
   };
 
   constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService) { }
+
+  fetchAll(): Observable<Post[]> {
+    return this.http
+      .get<Post[]>(this.url, { responseType: "json" })
+      .pipe(
+        catchError(this.errorHandlerService.handleError<Post[]>("fetchAll", []))
+      );
+  }
 }
