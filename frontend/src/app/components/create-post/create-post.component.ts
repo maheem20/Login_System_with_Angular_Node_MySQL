@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Post } from 'src/app/models/Post';
 
@@ -9,6 +9,7 @@ import { Post } from 'src/app/models/Post';
 })
 export class CreatePostComponent implements OnInit {
   @ViewChild("formDirective") formDirective: NgForm | undefined;
+  @Output() create: EventEmitter<any> = new EventEmitter();
   form: FormGroup | undefined;
 
   ngOnInit(): void {
