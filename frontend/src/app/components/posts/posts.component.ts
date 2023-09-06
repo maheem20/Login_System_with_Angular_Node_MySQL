@@ -31,4 +31,9 @@ export class PostsComponent implements OnInit {
   createPost(): void {
     this.posts$ = this.fetchAll();
   }
+
+  deletePost(): void {
+    this.postService
+      .deletePost(postId)
+  }
 }
