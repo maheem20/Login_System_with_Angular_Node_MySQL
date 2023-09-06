@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Post } from '../models/Post';
+import { User } from '../models/User';
 import { ErrorHandlerService } from './error-handler.service';
 
 @Injectable({
@@ -24,6 +25,14 @@ export class PostService {
       .get<Post[]>(this.url, { responseType: "json" })
       .pipe(
         catchError(this.errorHandlerService.handleError<Post[]>("fetchAll", []))
+      );
+  }
+
+  createPost(formData: Partial<Post>, userId: Pick<User, "id">): Observable<Post> {
+    return this.http
+      .post<Post>(this.url, { title: formData.title, body: formData.body, user: userId }, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandlerService.handleError<Post>("createPost"))
       );
   }
 }
