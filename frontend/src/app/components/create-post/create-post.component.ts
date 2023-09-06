@@ -28,6 +28,7 @@ export class CreatePostComponent implements OnInit {
 
   onSubmit(formData: Pick<Post, "title" | "body">): void {
     console.log(formData);
+    this.create.emit(null);
     this.form?.reset();
     this.formDirective?.resetForm();
   }
