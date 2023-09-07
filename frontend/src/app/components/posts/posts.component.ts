@@ -32,7 +32,7 @@ export class PostsComponent implements OnInit {
     this.posts$ = this.fetchAll();
   }
 
-  deletePost(): void {
+  delete(postId: Pick<Post, "id">): void {
     this.postService
       .deletePost(postId)
       .subscribe(() => (this.posts$ = this.fetchAll()));
