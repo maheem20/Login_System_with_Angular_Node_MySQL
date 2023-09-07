@@ -5,12 +5,12 @@
         <mat-icon (click)="delete(post.id)" color="warn">delete</mat-icon>
     </button>
     <div class="post-title">
-        post-title
+        {{ post.title }}
     </div>
     <div class="post-meta">
-        created at 05/09/2023
+        {{ post.created }}
     </div>
     <div class="post-body">
-        post body...
+        {{ post.body }}
     </div>
 </mat-card>
