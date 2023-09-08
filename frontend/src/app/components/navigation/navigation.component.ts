@@ -20,5 +20,6 @@ export class NavigationComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
+    this.authService.isUserLoggedIn$.next(false);
   }
 }
