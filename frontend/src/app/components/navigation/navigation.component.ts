@@ -17,4 +17,6 @@ export class NavigationComponent implements OnInit {
       this.isAuthenticated = isLoggedIn;
     });
   }
+
+  logout() { }
 }
