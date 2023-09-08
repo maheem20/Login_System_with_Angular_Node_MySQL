@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  isAuthenticated = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
