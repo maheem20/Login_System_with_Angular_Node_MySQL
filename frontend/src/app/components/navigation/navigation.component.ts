@@ -13,6 +13,7 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.isUserLoggedIn$.subscribe((isLoggedIn) => {
+      this.isAuthenticated = isLoggedIn;
     });
   }
 }
