@@ -18,5 +18,7 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  logout() { }
+  logout() {
+    localStorage.removeItem('token');
+  }
 }
