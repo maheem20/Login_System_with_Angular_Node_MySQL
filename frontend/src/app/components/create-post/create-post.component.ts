@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { first } from 'rxjs';
 import { Post } from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
@@ -31,9 +32,10 @@ export class CreatePostComponent implements OnInit {
   }
 
   onSubmit(formData: Pick<Post, "title" | "body">): void {
-    console.log(formData);
-    this.create.emit(null);
-    this.form?.reset();
-    this.formDirective?.resetForm();
+      this.postService.createPost(formData, this.authService.userId).pipe(first()).subscribe(() => {
+        this.create.emit(null);
+      });
+      this.form?.reset();
+      this.formDirective?.resetForm();
   }
 }
