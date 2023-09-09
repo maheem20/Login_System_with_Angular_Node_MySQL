@@ -35,7 +35,7 @@ export class CreatePostComponent implements OnInit {
 
   onSubmit(formData: Pick<Post, "title" | "body">): void {
     this.postService
-      .createPost(formData, this.authService.userId)
+      .createPost(formData, this.authService.userId!)
       .pipe(first())
       .subscribe(() => {
         this.create.emit(null);
