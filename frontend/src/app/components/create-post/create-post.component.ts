@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Post } from 'src/app/models/Post';
+import { AuthService } from 'src/app/services/auth.service';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-create-post',
@@ -11,6 +13,8 @@ export class CreatePostComponent implements OnInit {
   @ViewChild("formDirective") formDirective: NgForm | undefined;
   @Output() create: EventEmitter<any> = new EventEmitter();
   form: FormGroup | undefined;
+
+  constructor(private authService: AuthService, private postService: PostService) { }
 
   ngOnInit(): void {
     this.form = this.createFormGroup();
