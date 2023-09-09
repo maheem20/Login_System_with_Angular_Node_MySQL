@@ -2,6 +2,7 @@
     <mat-icon>add</mat-icon>Create Post
 </button>
 <form
+    *ngIf="isOpen"
     [formGroup]="form"
     #formDirective="ngForm"
     (ngSubmit)="onSubmit(form.value)"
