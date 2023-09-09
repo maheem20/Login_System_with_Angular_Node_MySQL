@@ -13,7 +13,9 @@ import { PostService } from 'src/app/services/post.service';
 export class CreatePostComponent implements OnInit {
   @ViewChild("formDirective") formDirective: NgForm | undefined;
   @Output() create: EventEmitter<any> = new EventEmitter();
+
   form: FormGroup | undefined;
+  isOpen = false;
 
   constructor(private authService: AuthService, private postService: PostService) { }
 
@@ -32,10 +34,10 @@ export class CreatePostComponent implements OnInit {
   }
 
   onSubmit(formData: Pick<Post, "title" | "body">): void {
-      this.postService.createPost(formData, this.authService.userId).pipe(first()).subscribe(() => {
-        this.create.emit(null);
-      });
-      this.form?.reset();
-      this.formDirective?.resetForm();
+    this.postService.createPost(formData, this.authService.userId).pipe(first()).subscribe(() => {
+      this.create.emit(null);
+    });
+    this.form?.reset();
+    this.formDirective?.resetForm();
   }
 }
